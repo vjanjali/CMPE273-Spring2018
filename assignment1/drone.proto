@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+
+message Request {
+    string coords = 1;
+    int32 num = 2;
+    string mode = 3;
+}
+
+message Response {
+    string coords = 1;
+    int32 num = 2;
+    string mode = 3;
+}
+
+service MoveDrone {
+    rpc move(Request) returns (stream Response) {}
+    rpc adjust(Request) returns (stream Response) {}
+}
